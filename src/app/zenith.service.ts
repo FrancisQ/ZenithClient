@@ -9,13 +9,13 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ZenithService {
 
-  private BASE_URL = "a2.jasoncheungbcit.xyz";
+  private BASE_URL = "http://a2.jasoncheungbcit.xyz";
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: Http) { }
 
   getEvents(): Promise<Events[]> {
-    return this.http.get(this.BASE_URL + '/api/eventsAPI')
+    return this.http.get(this.BASE_URL + "/api/eventsAPI")
       .toPromise()
       .then(response => response.json() as Events[])
       .catch(this.handleError);
